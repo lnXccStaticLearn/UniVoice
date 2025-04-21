@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccll.mapper.CommentsMapper">
+
+
+    <insert id="addComment">
+        insert into univoice.comments(text, user_id, username, comment_target, facilities_id, course_id, facilities_name, course_name, create_time, like_count)
+        VALUES (#{text},#{userId},#{username},#{commentTarget},#{facilitiesId},#{courseId},#{facilitiesName},#{courseName},#{createTime},#{likeCount})
+    </insert>
+</mapper>

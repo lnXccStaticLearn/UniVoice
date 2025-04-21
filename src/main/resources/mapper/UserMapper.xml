@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccll.mapper.UserMapper">
+
+
+    <insert id="insertForRegister" useGeneratedKeys="true" keyProperty="id">
+        insert into univoice.user(user_name, password,create_time,update_time)
+        values (#{username}, #{password},#{createTime},#{updateTime});
+    </insert>
+
+    <update id="update">
+        update user
+        <set>
+            <if test="username!=null and username!=''">user_name = #{username},</if>
+            <if test="password!=null and password!=''">password = #{password},</if>
+            <if test="mail!=null and mail!=''">mail = #{mail},</if>
+            <if test="createTime!=null and createTime!=''">create_time = #{createTime},</if>
+            <if test="updateTime!=null and updateTime!=''">update_time = #{updateTime},</if>
+            <if test="avatarUrl!=null and avatarUrl!=''">avatar_url = #{avatarUrl},</if>
+        </set>
+        where id = 1
+    </update>
+</mapper>

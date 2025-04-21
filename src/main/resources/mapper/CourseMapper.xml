@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccll.mapper.CourseMapper">
+
+
+    <select id="pageSimple" resultType="com.ccll.pojo.vo.SimpleCoursePageVo">
+        select id,course_name,average_score from univoice.course
+        <where>
+            <if test="courseName!=null and courseName!=''">
+                course_name like concat('%',#{courseName},'%')
+            </if>
+        </where>
+        limit #{start},#{pageSize}
+    </select>
+</mapper>
